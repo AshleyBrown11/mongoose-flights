@@ -13,7 +13,18 @@ class Index extends React.Component {
           {
           flight.map((flight, i) => {
             return (
-              <li key={i}>{`${flight.airline} ${flight.flightNo} ${flight.departs}`}</li>
+              <li key={i}>{`${flight.airline} ${flight.flightNo} ${flight.departs}`}
+              <nav>
+                <a href={`/flight/${flight._id}`}>Details</a><br/>
+                <a href={`/flight/${flight._id}/edit`}>Edit Flight</a>
+                </nav>
+                </li>
+              // <li key={i}>
+              //   <p>Airline:{flight.airline}</p>
+              //   <p>FlightNo:{flight.flightNo}</p> 
+              //   <p>Departure: {flight.departs}</p>
+              //   < a href={`/flight/${flight._id}`}>Details</a>
+              //   </li>
             )
           })
           }

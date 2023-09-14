@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const flightSchema = new Schema({
   airline: {
     type: String,
-    enum: ['American', 'Southwest', 'United'],
+    enum: ['American', 'Southwest', 'United', 'Spirit'],
     
   },
   flightNo: {
@@ -18,6 +18,13 @@ const flightSchema = new Schema({
       return new Date().setFullYear(new Date().getFullYear() + 1);
     },
   },
+  airport: {
+    type: String,
+    enum:['AUS', 'DAL', 'LAX', 'SAN', 'SEA'],
+  },
+  destinations: {
+    type: [Schema.Types.ObjectID], ref: 'Destination',
+  }
 });
 
 
